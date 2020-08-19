@@ -9,22 +9,21 @@
 import UIKit
 
 class EPCalendarHeaderView: UICollectionReusableView {
+    @IBOutlet var lblFirst: UILabel!
+    @IBOutlet var lblSecond: UILabel!
+    @IBOutlet var lblThird: UILabel!
+    @IBOutlet var lblFourth: UILabel!
+    @IBOutlet var lblFifth: UILabel!
+    @IBOutlet var lblSixth: UILabel!
+    @IBOutlet var lblSeventh: UILabel!
+    @IBOutlet var lblTitle: UILabel!
 
-    @IBOutlet weak var lblFirst: UILabel!
-    @IBOutlet weak var lblSecond: UILabel!
-    @IBOutlet weak var lblThird: UILabel!
-    @IBOutlet weak var lblFourth: UILabel!
-    @IBOutlet weak var lblFifth: UILabel!
-    @IBOutlet weak var lblSixth: UILabel!
-    @IBOutlet weak var lblSeventh: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         let calendar = Calendar.current
         let weeksDayList = calendar.shortWeekdaySymbols
-        
+
         if Calendar.current.firstWeekday == 2 {
             lblFirst.text = weeksDayList[1]
             lblSecond.text = weeksDayList[2]
@@ -43,9 +42,8 @@ class EPCalendarHeaderView: UICollectionReusableView {
             lblSeventh.text = weeksDayList[6]
         }
     }
-    
-    func updateWeekendLabelColor(_ color: UIColor)
-    {
+
+    func updateWeekendLabelColor(_ color: UIColor) {
         if Calendar.current.firstWeekday == 2 {
             lblSixth.textColor = color
             lblSeventh.textColor = color
@@ -54,7 +52,7 @@ class EPCalendarHeaderView: UICollectionReusableView {
             lblSeventh.textColor = color
         }
     }
-    
+
     func updateWeekdaysLabelColor(_ color: UIColor) {
         if Calendar.current.firstWeekday == 2 {
             lblFirst.textColor = color
